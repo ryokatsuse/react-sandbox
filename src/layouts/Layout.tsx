@@ -1,12 +1,13 @@
-import React from 'react';
-import GlobalHeader from "../components/GlobalHeader"
+import React, { VFC } from 'react';
+import { Header } from "../components/Header/Header"
+import { Home } from "../pages/Home";
 
-export const Layout: React.FC = () => {
+export const Layout: VFC = () => {
   return (
     <>
-      <GlobalHeader />
+      <Header />
       <main>
-        <p>test</p>
+        <Home />
       </main>
     </>
   )
