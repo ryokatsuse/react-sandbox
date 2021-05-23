@@ -1,24 +1,36 @@
-import React, { memo, VFC } from 'react';
+import React, { memo, VFC, Dispatch } from 'react';
+import { Action } from '../sampleReducer/sampleReducer';
 
 type Props = {
   value: string
   index: number
-  onChange: (index: number, value: string) => void;
-  onCheck: (index: number) => void;
+  dispatch: Dispatch<Action>;
 }
 
 export const InputNumber: VFC<Props> = memo(
   props => {
-    const { value, index, onChange, onCheck} = props
+    const { value, index, dispatch} = props
   
     return (
       <p>
         <input
           type="number"
           value={value}
-          onChange={e => onChange(index, e.currentTarget.value)}
+          onChange={e =>
+            dispatch({
+              type: 'input',
+              index,
+              value: e.currentTarget.value
+            })
+          }
         />
-        <button onClick={() => {onCheck(index)}}>check</button>
+        <button
+          onClick={() =>
+            dispatch({
+              type: "check",
+              index
+            })
+          }>check</button>
       </p>
     )
   }
