@@ -1,5 +1,5 @@
 import React, { memo, VFC, Dispatch } from 'react';
-import { Action } from '../sampleReducer/sampleReducer';
+import { Action } from '../sampleReducer/SampleReducer';
 
 type Props = {
   value: string
