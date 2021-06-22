@@ -10,6 +10,9 @@ export const Home: VFC = () => {
   const [count3, setCount3] = useState(0)
 
   // useCallbackで関数をメモ化することで等価となり再レンダリングされない
+  // 以下はuseCallbackの注意点
+  // React.memo化していないコンポーネントにuseCallbackでコールバック関数を渡している
+  // useCallbackでメモ化したコールバック関数をそれを生成したコンポーネント自身で使っている
   const handleClick = useCallback(() => {
     console.log('click')
   }, [])
