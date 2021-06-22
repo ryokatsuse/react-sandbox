@@ -1,4 +1,4 @@
-import React, { VFC, useState } from 'react';
+import React, { VFC, useState, useCallback } from 'react';
 import { SampleReducer } from '../components/sampleReducer/SampleReducer';
 import { ChildItem } from '../components/memoSample/ChildItem';
 import { ChildItem2 } from '../components/memoSample/ChildItem2';
@@ -9,12 +9,10 @@ export const Home: VFC = () => {
   const [count2, setCount2] = useState(0)
   const [count3, setCount3] = useState(0)
 
-  // いくら子コンポーネントでメモ化しても関数はコンポーネントが再レンダリングされる度に再生成される
-  // ここでは関数の内容が同じでも前のhandleClickとは異なるオブジェクトとなり等価ではなくなる
-  // 結果として再レンダリングされてしまう
-  const handleClick = () => {
+  // useCallbackで関数をメモ化することで等価となり再レンダリングされない
+  const handleClick = useCallback(() => {
     console.log('click')
-  }
+  }, [])
   return (
     <>
       <SampleReducer />
