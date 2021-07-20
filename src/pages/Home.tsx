@@ -2,6 +2,7 @@ import React, { VFC, useState, useCallback } from 'react';
 import { SampleReducer } from '../components/sampleReducer/SampleReducer';
 import { ChildItem } from '../components/memoSample/ChildItem';
 import { ChildItem2 } from '../components/memoSample/ChildItem2';
+import { ChildItem3 } from '../components/memoSample/ChildItem3';
 
 export const Home: VFC = () => {
   console.log('render Home')
@@ -25,6 +26,7 @@ export const Home: VFC = () => {
       <p>Home: {count1}</p>
       <ChildItem count={count2} />
       <ChildItem2 handleClick={handleClick} />
+      <ChildItem3 />
     </>
   )
 }
