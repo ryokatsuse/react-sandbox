@@ -3,12 +3,14 @@ import { SampleReducer } from '../components/sampleReducer/SampleReducer';
 import { ChildItem } from '../components/memoSample/ChildItem';
 import { ChildItem2 } from '../components/memoSample/ChildItem2';
 import { ChildItem3 } from '../components/memoSample/ChildItem3';
+import { Dialog } from '../components/dialog/Dialog';
 
 export const Home: VFC = () => {
   console.log('render Home')
   const [count1, setCount1] = useState(0)
   const [count2, setCount2] = useState(0)
   const [count3, setCount3] = useState(0)
+  const [isModalOpen, seIsModaltOpen] = useState(false);
 
   // useCallbackで関数をメモ化することで等価となり再レンダリングされない
   // 以下はuseCallbackの注意点
@@ -17,6 +19,14 @@ export const Home: VFC = () => {
   const handleClick = useCallback(() => {
     console.log('click')
   }, [])
+
+  const openModal = () => {
+    seIsModaltOpen(true)
+  }
+
+  const closeModal = () => {
+    seIsModaltOpen(false)
+  }
   return (
     <>
       <SampleReducer />
@@ -27,6 +37,13 @@ export const Home: VFC = () => {
       <ChildItem count={count2} />
       <ChildItem2 handleClick={handleClick} />
       <ChildItem3 />
+      <button onClick={openModal}>Open Modal</button>
+      <Dialog
+        isOpen={isModalOpen}
+        title="モーダル">
+          <button onClick={closeModal}>閉じる</button>
+          <div>モーダルコンテンツ</div>
+        </Dialog>
     </>
   )
 }
