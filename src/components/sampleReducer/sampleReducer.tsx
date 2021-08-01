@@ -51,7 +51,6 @@ export const SampleReducer: VFC = () => {
     message: ""
   });
 
-  console.log(values)
   return (
     <div className={StyledSampleReducer}>
       {values.map((value, i) => {
