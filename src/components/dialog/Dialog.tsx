@@ -12,10 +12,6 @@ interface Props {
 export const Dialog: FC<Props> = props => {
   const {close, title, isOpen, children} = props
 
-  // useEffect(() => {
-  //   Dialog.setAppElement('#root');
-  // }, []);
-
   return (
     <Modal
       appElement={document.getElementById('root') as HTMLElement}
