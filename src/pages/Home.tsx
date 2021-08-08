@@ -1,8 +1,9 @@
 import React, { VFC, useState, useCallback } from 'react';
 import { SampleReducer } from '../components/sampleReducer/SampleReducer';
-import { ChildItem } from '../components/memoSample/ChildItem';
+// import { ChildItem } from '../components/memoSample/ChildItem';
 import { ChildItem2 } from '../components/memoSample/ChildItem2';
 import { ChildItem3 } from '../components/memoSample/ChildItem3';
+import { RecoilSample } from '../components/recoilSample/RecoilSample';
 import { Dialog } from '../components/dialog/Dialog';
 
 export const Home: VFC = () => {
@@ -34,10 +35,11 @@ export const Home: VFC = () => {
       <button onClick={() => setCount2(count2 + 1)}>カウントアップ子コンポーネント</button>
       <button onClick={() => setCount3(count3 + 1)}>Increment count</button>
       <p>Home: {count1}</p>
-      <ChildItem count={count2} />
+      {/* <ChildItem count={count2} /> */}
       <ChildItem2 handleClick={handleClick} />
       <ChildItem3 />
       <button onClick={openModal}>Open Modal</button>
+      <RecoilSample />
       <Dialog
         isOpen={isModalOpen}
         title="モーダル">

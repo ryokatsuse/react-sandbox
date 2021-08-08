@@ -12,3 +12,8 @@ export const charCountState = selector({
     return text.length;
   },
 });
+
+export const namesState = atom({
+  key: 'namesState',
+  default: ['Ella', 'Chris', 'Paul'],
+});
